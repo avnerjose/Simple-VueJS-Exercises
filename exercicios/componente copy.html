@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Componente2</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+    <style>
+        .main {
+            display: flex;
+            align-items: center;
+        }
+        .main p{
+            padding: 0 16px;
+        }
+        .main button{
+            height: 64px;
+            width: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+        .main button:hover{
+            background-color: #e6e6e6;
+        }
+    </style>
+
+</head>
+
+<body class="exercicio">
+    <div id="app">
+        <Contador></Contador>
+        <Contador></Contador>
+    </div>
+    <script>
+        Vue.component('Contador', {
+            template: `
+            <div class="main">
+                <button @click="add">+</button>
+                <p>{{contador}}</p>
+                <button @click="remove">-</button>
+            </div>
+        `,
+            data() {
+                return {
+                    contador: 0,
+                }
+            },
+            methods:{
+                add(){
+                    this.contador++;
+                },
+                remove(){
+                    this.contador--;
+                }
+            }
+        });
+        new Vue({
+            el: '#app',
+
+        });
+    </script>
+</body>
+
+</html>
